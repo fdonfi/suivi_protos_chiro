@@ -1,0 +1,72 @@
+PNC\ChiroBundle\Entity\ObservationTaxon:
+    type: entity
+    table: chiro.pr_visite_observationtaxon
+    schema: chiro
+    #repositoryClass: PNC\ChiroBundle\Repositories\ObservationTaxonRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fk_bv_id:
+            type: integer
+        cotx_tx_presume:
+            type: string
+            length: 250
+        cotx_espece_incertaine:
+            type: boolean
+            options:
+                default: false
+        cotx_effectif_abs:
+            type: integer
+        cotx_nb_male_adulte:
+            type: integer
+        cotx_nb_femelle_adulte:
+            type: integer
+        cotx_nb_male_juvenile:
+            type: integer
+        cotx_nb_femelle_juvenile:
+            type: integer
+        cotx_nb_male_indetermine:
+            type: integer
+        cotx_nb_femelle_indetermine:
+            type: integer
+        cotx_nb_indetermine_adulte:
+            type: integer
+        cotx_nb_indetermine_juvenile:
+            type: integer
+        cotx_nb_indetermine_indetermine:
+            type: integer
+        cotx_obj_status_validation:
+            type: integer
+        cotx_commentaire:
+            type: text
+        cotx_indices_cmt:
+            type: text
+        cotx_cd_nom:
+            type: integer
+        cotx_nom_complet:
+            type: text
+        cotx_validateur:
+            type: integer
+        cotx_act_id: 
+            type: integer
+        cotx_eff_id: 
+            type: integer
+        cotx_prv_id: 
+            type: integer
+        cotx_num_id:
+            type: integer
+        cotx_mod_id:
+            type: integer
+        cotx_date_validation:
+            type: date
+        meta_create_timestamp: 
+            type: date
+        meta_update_timestamp:
+            type: date
+        meta_numerisateur_id:
+            type: integer
+            nullable: true

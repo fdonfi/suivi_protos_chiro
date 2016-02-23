@@ -1,0 +1,21 @@
+PNC\ChiroBundle\Entity\ConditionsObservation:
+    type: entity
+    table: chiro.pr_visite_conditions
+    schema: chiro
+    repositoryClass: PNC\ChiroBundle\Repositories\ConditionsObservationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fk_bv_id:
+            type: integer
+        cvc_temperature:
+            type: float
+        cvc_humidite:
+            type: float
+        cvc_mod_id:
+            type: integer
+

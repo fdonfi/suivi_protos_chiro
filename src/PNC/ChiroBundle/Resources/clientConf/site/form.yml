@@ -1,0 +1,150 @@
+editAccess: 5
+formTitleCreate: "Nouveau site"
+formTitleUpdate: "Modification du site "
+formTitleRef: bsNom
+createSuccessMessage: "Création réussie"
+updateSuccessMessage: "Modification réussie"
+deleteSuccessMessage: "Suppression réussie"
+formDeleteRedirectUrl: "g/chiro/site/list"
+formCreateCancelUrl: "g/chiro/site/list"
+deleteAccess: 5
+groups:
+    -   name: Localisation
+        fields:
+            -   name: geom
+                label: Coordonnées GPS
+                type: geom
+                options:
+                    geometryType: point
+                    dataUrl: chiro/site
+    -   name: Informations
+        fields:
+            -   name: id
+                label: ID
+                type: hidden
+            -   name: metaNumerisateurId
+                label: Numerisateur
+                type: hidden
+                options:
+                    ref: userId
+            -   name: bsNom
+                label: Nom
+                type: string
+                help: nom du site
+                options:
+                    minLength: 5
+                    maxLength: 250
+            -   name: bsTypeId
+                label: Type
+                type: select
+                thesaurusID: 7
+                default: 37
+                help: Type de lieu
+            -   name: bsObrId
+                label: Observateur
+                type: xhr
+                options:
+                    url: users/name/100/2
+                    reverseurl: users/id
+                    required: true
+            -   name: bsDate
+                label: Date créa.
+                type: date
+                help: "date d'ajout à la base de données"
+                options:
+                    required: true
+            -   name: cisSiteActif
+                label: Site actif
+                help: "Détermine si le suivi du site est définitivement abandonné"
+                type: bool
+                default: true
+            -   name: bsDescription
+                label: Description
+                type: text
+                options: 
+                    maxLength: 1000
+            -   name: siteFichiers
+                label: "Fichiers joints" 
+                type: file
+                help: "Fichiers relatifs au site"
+                options:
+                    target: "chiro/site"
+                    maxSize: 2048000
+                    accepted:
+                        - "png"
+                        - "jpg"
+                        - "pdf"
+    -   name: Etat
+        fields:
+            -   name: cisMenace
+                label: "Types de menace"
+                type: multisel
+                thesaurusID: 11
+                #default: 64
+                help: "Type de menace pesant sur le site"
+            -   name: cisAmenagement
+                label: "Types d'aménagements"
+                type: multisel
+                thesaurusID: 13
+                #default: 64
+                help: "Type de menace pesant sur le site"
+            -   name: cisMenaceCmt
+                label: "Informations menaces"
+                type: text
+                help: "Informations complémentaires sur les menaces pesant sur le site"
+            -   name: cisFrequentation
+                label: Fréquentation
+                type: select
+                thesaurusID: 10
+                #default: 59
+                default: 0
+                options:
+                    nullable: true
+                help: "Estimation de la fréquentation du site"
+            -   name: cisActions
+                label: "Actions"
+                type: text
+                help: "Actions entreprises pour la préservation du site"
+
+    -   name: Contact
+        fields:
+            -   name: cisContactNom
+                label: "Nom du contact"
+                type: string
+                options:
+                    maxLength: 25
+            -   name: cisContactPrenom
+                label: "Prénom du contact"
+                type: string
+                options:
+                    maxLength: 25
+            -   name: cisContactAdresse
+                label: "Adresse du contact"
+                type: string
+                options:
+                    maxLength: 150
+            -   name: cisContactCodePostal
+                label: "Code postal"
+                type: string
+                options:
+                    maxLength: 5
+            -   name: cisContactVille
+                label: Ville
+                type: string
+                options:
+                    maxLength: 100
+            -   name: cisContactTelephone
+                label: Téléphone
+                type: string
+                options:
+                    maxLength: 15
+            -   name: cisContactPortable
+                label: Portable
+                type: string
+                options:
+                    maxLength: 15
+            -   name: cisContactCommentaire
+                label: "Commentaires contact"
+                type: text
+                options:
+                    maxLength: 1000

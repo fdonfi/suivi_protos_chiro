@@ -1,0 +1,110 @@
+title: Sites
+emptyMsg: Aucun site pour le moment
+createBtnLabel: Nouveau site
+createUrl: "#/chiro/edit/site/"
+editUrl: "#/chiro/edit/site/"
+detailUrl: "#/chiro/site/"
+dataUrl: "chiro/site" 
+mapConfig: "js/resources/chiro_site.json"
+mapSize: large
+editAccess: 5
+filtering:
+    limit: 200
+    fields:
+        -   name: "dern_obs"
+            label: "Dernière observation"
+            type: date
+        -   name: nb_obs
+            label: "Nombre d'observations"
+            type: "num"
+        -   name: "bs_type_id"
+            label: "Type de site"
+            type: select
+            thesaurusID: 7
+            default: 0
+            zeroNull: true
+        -   name: bs_date
+            label: "Création du site"
+            type: date
+fields: 
+    -   name: id 
+        label: ID
+        type: text
+        filter: 
+            id: text
+        options: 
+            visible: false
+
+    -   name: bsNom
+        label: Nom
+        type: text
+        filter: 
+            bsNom: text
+        options:
+            primary: true
+            visible: true
+            style: xl
+    -   name: bsCode
+        label: Code site
+        type: text
+        filter: 
+            bsCode: text
+        options:
+            visible: false
+            style: xl
+    -   name: nomObservateur
+        label: Observateur
+        type: text
+        filter:
+            nomObservateur: text
+        option:
+            visible: true
+            style: xl
+    -   name: bsDate
+        label: Date créa.
+        type: date
+        filter:
+            bsDate: text
+        options:
+            type: date
+            visible: false
+            style: l
+    -   name: dernObs
+        label: "Dern. obs."
+        type: date
+        filter:
+            dernObs: text
+        options:
+            type: date
+            visible: true 
+            style: xs
+    -   name: nbObs
+        label: "Nb visites"
+        type: text
+        filter:
+            nbObs: text
+        options:
+            visible: true
+            style: xs
+    -   name: bsTypeId
+        label: Type
+        type: select
+        thesaurusID: 7
+        default: 0
+        filter:
+            bsTypeId: select 
+        options:
+            nullable: true
+            visible: true
+            type: select
+            style: l
+    -   name: cisSiteActif
+        label: Site actif
+        type: bool
+        options:
+            type: bool
+            visible: false
+            style: l
+
+
+

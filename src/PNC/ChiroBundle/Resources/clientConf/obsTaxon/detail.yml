@@ -1,0 +1,115 @@
+editAccess: 3
+subEditAccess: 3
+dataUrl: "chiro/obs_taxon/"
+editAccessOverride: metaNumerisateurId
+subSchemaUrl: chiro/config/biometrie/list
+subDataUrl: chiro/biometrie/taxon/
+subEditSchemaUrl: chiro/config/biometrie/form/many
+subEditSaveUrl: chiro/biometrie/many
+subEditRef: id
+subSchemaAdd: 3
+groups:
+    -   name: "Général"
+        glyphicon: glyphicon-info-sign
+        fields:
+            -   name: cotxCdNom
+                label: "Cd nom"
+                type: num
+            -   name: cotxNomComplet
+                label: "Nom taxon"
+                type: string
+            -   name: cotxTxPresume
+                label: "Taxon presumé"
+                type: string
+            -   name: cotxEspeceIncertaine
+                label: "Espece incertaine"
+                type: bool
+            -   name: cotxObjStatusValidation
+                label: "Statut validation"
+                type: select
+                thesaurusID: 9
+            -   name: cotxValidateur
+                label: "Validateur"
+                type: xhr
+                options:
+                    url: "users/id"
+            -   name: cotxModId
+                label: "Mode d'observation"
+                type: select
+                thesaurusID: 4
+            -   name: indices
+                label: Indices
+                type: multisel
+                thesaurusID: 12
+            -   name: cotxIndicesCmt
+                label: "Description indices"
+                type: string
+            -   name: cotxActId
+                label: "Activité"
+                type: select
+                thesaurusID: 5
+            -   name: cotxPrvId
+                label: "Preuves de reproduction"
+                type: select
+                thesaurusID: 6
+            -   name: cotxEffectifAbs
+                label: "Effectif total"
+                type: num
+            -   name: obsTaxonFichiers
+                label: Photographies
+                type: file
+                help: "Photographies pour identification"
+                options:
+                    target: "chiro/obsTaxon/"
+    -   name: "Détail"
+        glyphicon: glyphicon-search
+        fields:
+            -   name: cotxNbMaleAdulte
+                label: "Mâles adultes"
+                type: num
+            -   name: cotxNbFemelleAdulte
+                label: "Femelles adultes"
+                type: num
+            -   name: cotxNbMaleJuvenile
+                label: "Mâles juvéniles"
+                type: num
+            -   name: cotxNbFemelleJuvenile
+                label: "Femelles juvéniles"
+                type: num
+            -   name: cotxNbMaleIndetermine
+                label: "Mâles indéterminés"
+                help: "Âge indéterminé"
+                type: num
+            -   name: cotxNbFemelleIndetermine
+                label: "Femelles indéterminées"
+                help: "Âge indéterminé"
+                type: num
+            -   name: cotxNbIndetermineAdulte
+                label: "Indéterminés adultes"
+                help: "Sexe indéterminé"
+                type: num
+            -   name: cotxNbIndetermineJuvenile
+                label: "Indéterminés juvéniles"
+                help: "Sexe indéterminé"
+                type: num
+            -   name: cotxNbIndetermineIndetermine
+                label: "Indéterminé indéterminé"
+                help: "Âge et sexe indéterminés"
+                type: num
+            -   name: cotxCommentaire
+                label: "Commentaires"
+                type: string
+    -   name: "Metadonnées"
+        glyphicon: glyphicon-stats
+        fields:
+            -   name: metaNumerisateurId
+                label: Numérisateur
+                type: xhr
+                options:
+                    url: "users/id"
+            -   name: metaCreateTimestamp
+                label: "Création donnée"
+                type: date
+            -   name: metaUpdateTimestamp
+                label: "Dernière mise à jour"
+                type: date

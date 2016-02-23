@@ -1,0 +1,49 @@
+PNC\ChiroBundle\Entity\ObservationSsSiteView:
+    type: entity
+    table: chiro.vue_chiro_obs_ss_site
+    schema: chiro
+    id:
+        id:
+            type: integer
+            id: true
+    fields:
+        geom:
+            type: json_array
+        bv_date:
+            type: date
+        meta_numerisateur_id:
+            type: integer
+        numerisateur:
+            type: text
+        bv_commentaire:
+            type: text
+        bv_id_table_src:
+            type: integer
+        cvc_temperature:
+            type: float
+        cvc_humidite:
+            type: float
+        nb_taxons:
+            type: integer
+        abondance:
+            type: integer
+        cvc_mod_id:
+            type: integer
+        meta_create_timestamp:
+            type: date
+        meta_update_timestamp:
+            type: date
+        ref_commune:
+            type: json_array
+
+    manyToMany:
+        observateurs:
+            targetEntity: PNC\ChiroBundle\Entity\ObservateurView
+            joinTable:
+                name: suivi.rel_obs_obr
+                joinColumns:
+                    obs_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    obr_id:
+                        referencedColumnName: obr_id

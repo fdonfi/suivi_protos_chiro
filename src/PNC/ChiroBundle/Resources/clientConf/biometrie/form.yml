@@ -1,0 +1,102 @@
+editAccess: 3
+deleteAccess: 3
+groups:
+    -   name: "Général"
+        fields:
+            -   name: id
+                type: hidden
+            -   name: fkCotxId 
+                type: hidden
+            -   name: cbioAgeId
+                label: "Âge"
+                type: select
+                thesaurusID: 1
+            -   name: cbioSexeId
+                label: "Sexe"
+                type: select
+                thesaurusID: 2
+            -   name: metaNumerisateurId
+                label: Numerisateur
+                type: hidden
+                options:
+                    ref: userId
+            -   name: cbioPoids
+                label: "Poids (g)"
+                type: num
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioCommentaire
+                label: "Commentaires"
+                type: text
+    -   name: "Membre"
+        fields:
+            -   name: cbioAb
+                label: "AB (mm)"
+                type: num
+            -   name: cbioD3mf1
+                label: "D3MF1 (mm)"
+                type: num
+                help: "Mesure du 3ème doigt, métacarpe + 1ère phalange"
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioD3f2f3
+                label: "D3F2F3 (mm)"
+                type: num
+                help: "Mesure du 3ème doigt, 2ème et 3ème phalanges"
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioD3total
+                label: "D3 total (mm)"
+                type: num
+                help: "Longueur totale du 3ème doigt"
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioD5
+                label: "D5 (mm)"
+                type: num
+                help: "Mesure du 5ème doigt"
+                options:
+                    min: 0
+                    step: 0.1
+    -   name: "Crane"
+        fields:
+            -   name: cbioCm3sup
+                label: "CM3SUP (mm)"
+                type: num
+                help: "Mesure canine - 3ème molaire (mandibule supérieure)"
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioCm3inf
+                label: "CM3INF (mm)"
+                type: num
+                help: "Mesure canine - 3ème molaire (mandibule inférieure)"
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioCb
+                label: "CB (mm)"
+                help: "Mesure condylobasale"
+                type: num
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioLm
+                label: "LM (mm)"
+                help: "Mesure mandibule inférieure"
+                type: num
+                options:
+                    min: 0
+                    step: 0.1
+            -   name: cbioOreille
+                label: "Oreille (mm)"
+                help: "Mesure de l'oreille"
+                type: num
+                options:
+                    min: 0
+                    step: 0.1
+

@@ -1,0 +1,112 @@
+dataUrl: "chiro/site/" 
+mapConfig: "js/resources/chiro_site.json"
+mapData: "chiro/site"
+mapSize: large
+editAccess: 3
+subEditAccess: 2
+subSchemaUrl: chiro/config/observation/list
+subDataUrl: chiro/observation/site/
+groups:
+    -   name: Informations
+        glyphicon: glyphicon-info-sign
+        fields:
+            -   name: bsCode
+                label: "Code site"
+                type: string
+            -   name: nomObservateur
+                label: "Observateur"
+                type: string
+            -   name: bsDate
+                label: "Date de création"
+                type: date
+                help: "Date d'ajout du site à la base de données"
+            -   name: bsTypeId
+                label: "Type"
+                type: select
+                thesaurusID: 7
+                help: "Type de lieu"
+            -   name: refCommune
+                label: "Commune"
+                type: xhr
+                options:
+                    multi: true
+                    url: "commune"
+            -   name: cisSiteActif
+                label: "Site actif"
+                type: bool
+    -   name: Détails
+        glyphicon: glyphicon-search
+        fields:
+            -   name: bsDescription
+                label: Description
+                type: string
+            -   name: siteFichiers
+                label: "Fichiers associés"
+                type: file
+                options:
+                    target: "chiro/site/"
+            -   name: cisFrequentation
+                label: Fréquentation
+                type: select
+                thesaurusID: 10
+                help: "Fréquentation du site"
+            -   name: cisMenace
+                label: Menaces
+                type: multisel
+                thesaurusID: 11
+                help: "Menaces pesant sur le site"
+            -   name: cisMenaceCmt
+                label: "Description menaces"
+                type: string
+                help: "Description des menaces pesant sur le site"
+            -   name: cisAmenagement
+                label: Aménagements
+                type: multisel
+                thesaurusID: 13
+                help: "Aménagements effectués sur le site"
+            -   name: cisActions
+                label: "Actions"
+                type: string
+                help: "Actions entreprises pour la préservation du site"
+    -   name: Contact
+        glyphicon: glyphicon-phone-alt
+        fields:
+            -   name: cisContactNom
+                label: "Nom du contact"
+                type: string
+            -   name: cisContactPrenom
+                label: "Prénom du contact"
+                type: string
+            -   name: cisContactAdresse
+                label: "Adresse du contact"
+                type: string
+            -   name: cisContactCodePostal
+                label: "Code postal"
+                type: string
+            -   name: cisContactVille
+                label: "Ville"
+                type: string
+            -   name: cisContactTelephone
+                label: "Téléphone"
+                type: string
+            -   name: cisContactPortable
+                label: "Portable"
+                type: string
+            -   name: cisContactCommentaire
+                label: "Commentaires contact"
+                type: string
+                help: "Informations complémentaires contact"
+    -   name: "Metadonnées"
+        glyphicon: glyphicon-stats
+        fields:
+            -   name: metaNumerisateurId
+                label: Numérisateur
+                type: xhr
+                options:
+                    url: "users/id"
+            -   name: metaCreateTimestamp
+                label: "Création donnée"
+                type: date
+            -   name: metaUpdateTimestamp
+                label: "Dernière mise à jour"
+                type: date

@@ -1,0 +1,22 @@
+services:
+#    pnc_chiro.example:
+#        class: PNC\ChiroBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+    biometrieService:
+        class: PNC\ChiroBundle\Services\BiometrieService
+        arguments: [@doctrine, @entityService, @pagination]
+            
+    taxonService:
+        class: PNC\ChiroBundle\Services\TaxonService
+        arguments: [@doctrine, @biometrieService, @pagination, @entityService]
+            
+    observationService:
+        class: PNC\ChiroBundle\Services\ObservationService
+        arguments: [@doctrine, @taxonService, @baseObservationService, @entityService, @pagination]
+            
+    siteService:
+        class: PNC\ChiroBundle\Services\SiteService
+        arguments: [@doctrine, @observationService, @baseSiteService, @entityService, @pagination]
+            

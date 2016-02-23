@@ -1,0 +1,65 @@
+PNC\ChiroBundle\Entity\InfoSite:
+    type: entity
+    table: chiro.pr_site_infos
+    schema: chiro
+    #repositoryClass: PNC\ChiroBundle\Repositories\InfoSiteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fk_bs_id:
+            type: integer
+        cis_frequentation:
+            type: integer
+            nullable: true
+        cis_menace_cmt:
+            type: text
+            nullable: true
+        cis_contact_nom:
+            type: string
+            length: 25
+            nullable: true
+        cis_contact_prenom:
+            type: string
+            length: 25
+            nullable: true
+        cis_contact_adresse:
+            type: string
+            length: 150
+            nullable: true
+        cis_contact_code_postal:
+            type: string
+            length: 5
+            nullable: true
+        cis_contact_ville:
+            type: string
+            length: 100
+            nullable: true
+        cis_contact_telephone:
+            type: string
+            length: 15
+            nullable: true
+        cis_contact_portable:
+            type: string
+            length: 15
+            nullable: true
+        cis_contact_commentaire:
+            type: text
+            nullable: true
+        cis_site_actif:
+            type: boolean
+            nullable: true
+        cis_actions:
+            type: text
+            nullable: true
+
+    oneToOne:
+        parent_site:
+            targetEntity: PNC\BaseAppBundle\Entity\Site
+            joinColumn:
+                name: fk_bs_id
+                referencedColumnName: id
+

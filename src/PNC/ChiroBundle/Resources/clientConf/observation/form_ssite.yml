@@ -1,0 +1,64 @@
+editAccess: 3
+editAccessOverride: metaNumerisateurId
+deleteAccess: 5
+deleteAccessOverride: numerisateurId
+subSchemaUrl: chiro/config/obstaxon/form/many
+subDataRef: __taxons__
+subSchemaAdd: 2,
+subTitle: "Ajout rapide de taxons"
+groups:
+    -   name: Localisation
+        fields:
+            -   name: geom
+                label: "Coordonnées GPS"
+                type: geom
+                options:
+                    geometryType: point
+                    dataUrl: "chiro/observation"
+    -   name: Observation
+        fields:
+            -   name: id
+                label: Id
+                type: hidden
+            -   name: fkBsId
+                label: Site
+                type: hidden
+            -   name: metaNumerisateurId
+                label: Numerisateur
+                type: hidden
+                options:
+                    ref: userId
+            -   name: observateurs
+                label: Observateurs
+                type: xhr
+                options:
+                    multi: true
+                    url: "users/name/100/2"
+                    reverseurl: "users/id"
+                    ref: nomComplet
+            -   name: bvDate
+                label: Date
+                type: date
+                options:
+                    required: true
+            -   name: cvcModId
+                label: "Mode d'observation"
+                type: select
+                thesaurusID: 4
+                default: 18
+            -   name: bvCommentaire
+                label: Commentaires
+                type: text
+            -   name: cvcTemperature
+                label: "Température (°C)"
+                type: num
+                options:
+                    max: 100
+                    step: 0.1
+            -   name: cvcHumidite
+                label: "Humidité (%)"
+                type: num
+                options:
+                    max: 100
+                    step: 0.1
+

@@ -1,0 +1,47 @@
+title: "Biométries"
+emptyMsg: "Aucune biométrie"
+createBtnLabel: "Nouvelle biométrie"
+createUrl: "#/chiro/edit/biometrie/taxon/"
+editUrl: "#/chiro/edit/biometrie/"
+detailUrl: "#/chiro/biometrie/"
+editAccess: 3
+#filtering: 
+#    limit: 200
+fields:
+    -   name: id
+        label: "Id"
+        type: num
+        filter: 
+            id: text
+        options:
+            visible: false
+            style: xl 
+    -   name: cbioAgeId
+        label: "Âge"
+        type: select
+        thesaurusID: 1
+        filter:
+            cbioAgeId: text
+        options:
+            visible: true
+            type: select
+            style: xl 
+            primary: true
+    -   name: cbioSexeId
+        label: "Sexe"
+        type: select
+        thesaurusID: 2
+        filter:
+            cbioSexeId: text
+        options:
+            visible: true
+            type: select
+            style: s 
+    -   name: cbioPoids
+        label: "Poids"
+        type: num
+        filter: 
+            cbioPoids: text
+        options:
+            visible: true
+            style: xs 

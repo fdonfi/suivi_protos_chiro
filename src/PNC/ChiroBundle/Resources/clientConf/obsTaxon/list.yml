@@ -1,0 +1,52 @@
+title: Taxons
+emptyMsg: Aucun taxon observé
+createBtnLabel: Ajouter taxon
+createUrl: "#/chiro/edit/taxons/observation/"
+editUrl: "#/chiro/edit/taxons/"
+detailUrl: "#/chiro/taxons/"
+dataUrl: "chiro/obs_taxon" 
+mapConfig: "js/resources/chiro_site.json"
+mapSize: small
+editAccess: 3
+filtering:
+    limit: 200
+    fields: 
+        -   name: "cotx_cd_nom"
+            label: "Taxon"
+            type: "xhr"
+            options:
+                url: "chiro/taxons"
+                reverseurl: "chiro/taxons/id"
+                ref: "taxon"
+fields:
+    -   name: id
+        label: Id
+        filter:
+            id: text
+        options:
+            visible: false
+    -   name: cotxNomComplet
+        label: "Nom taxon"
+        filter:
+            cotxNomComplet: text
+        options:
+            visible: true
+            style: xl 
+            primary: true
+    -   name: cotxEffectifAbs
+        label: "Effectif total"
+        filter:
+            cotxEffectifAbs: text
+        options:
+            visible: true
+            style: xs 
+    -   name: cotxObjStatusValidation
+        label: "Validation"
+        type: select
+        thesaurusID: 9
+        filter:
+            cotxObjStatusValidation: text
+        options:
+            visible: true
+            type: select
+            style: l 

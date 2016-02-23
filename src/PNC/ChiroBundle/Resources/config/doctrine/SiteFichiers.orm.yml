@@ -1,0 +1,12 @@
+PNC\ChiroBundle\Entity\SiteFichiers:
+    type: entity
+    table: chiro.rel_chirosite_fichiers
+    schema: chiro
+    repositoryClass: PNC\ChiroBundle\Repositories\SiteFichiersRepository
+    id:
+        site_id:
+            type: integer
+        fichier_id:
+            type: integer
+        commentaire:
+            type: text
